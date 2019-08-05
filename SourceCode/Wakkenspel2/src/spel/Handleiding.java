@@ -25,7 +25,7 @@ public class Handleiding {
 		String bericht = "";
 		if (eersteX) {
 			bericht = "Welkom bij het wakken, ijsberen & pinguins spel! \n"
-					+ "Op de dobbelsteen is een wak is in het midden getekend, daaromheen worden de ijsberen getekend. \n"
+					+ "Op de dobbelsteen is een wak in het midden getekend, daaromheen worden de ijsberen getekend. \n"
 					+ "De dobbelsteen kantwaarde “5” vertoont bijvoorbeeld een wak in het midden, er zitten vier "
 					+ "zwarte puntjes \nomheen, dit zijn de ijsberen. Als er geen puntje in het midden zit zijn er geen ijsberen. \n"
 					+ "Pinguïns leven op de zuidpool. De zuidpool ligt aan de tegenovergestelde kant, "
@@ -35,7 +35,7 @@ public class Handleiding {
 					+ "Succes en veel plezier!";
 			eersteX = false;
 		} else {
-			bericht = "Op de dobbelsteen is een wak is in het midden getekend, daaromheen worden de ijsberen getekend. \n"
+			bericht = "Op de dobbelsteen is een wak in het midden getekend, daaromheen worden de ijsberen getekend. \n"
 					+ "De dobbelsteen kantwaarde “5” vertoont bijvoorbeeld een wak in het midden, er zitten vier "
 					+ "zwarte puntjes \nomheen, dit zijn de ijsberen. Als er geen puntje in het midden zit zijn er geen ijsberen. \n"
 					+ "Pinguïns leven op de zuidpool. De zuidpool ligt aan de tegenovergestelde kant, "

@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 /**
  * 
  * De klasse <code>SpelPaneel</code> representeert het paneel van het spel
+ * 
  * @author Daan Rosendal 97059531
  * @since 1-6-2019
  * @version 2.2
@@ -39,7 +40,7 @@ class SpelPaneel extends JPanel {
 	String tips[] = { "- Kies een aantal van 3 tot en met 12 dobbelstenen.",
 			"- Kies een aantal van 0 tot en met 12 wakken.", "- Kies een aantal van 0 tot en met 48 ijsberen.",
 			"- Kies een aantal van 1 tot en met 72 pinguins" };
-	
+
 	// Roep 12 dobbelstenen aan als objecten
 	private Dobbelsteen dbl1 = new Dobbelsteen(20, 20);
 	private Dobbelsteen dbl2 = new Dobbelsteen(150, 20);
@@ -118,8 +119,8 @@ class SpelPaneel extends JPanel {
 		resetKnop.setBorderPainted(false);
 		resetKnop.setEnabled(false);
 		resetKnop.addActionListener(new Resetten());
-		
-		//Handleidingknop
+
+		// Handleidingknop
 		hKnop = new JButton("Handleiding");
 		hKnop.setBackground(Color.WHITE);
 		hKnop.setForeground(lichtblauw);
@@ -224,7 +225,7 @@ class SpelPaneel extends JPanel {
 		pinguinVak.setBounds(225, 260, 20, 20);
 		pinguinLabel.setBounds(170, 260, 120, 20);
 		controleerKnop.setBounds(340, 260, 120, 20);
-		dAantalLabel.setBounds(505, 260, 120, 20);
+		dAantalLabel.setBounds(504, 260, 140, 20);
 		dAantalVak.setBounds(624, 260, 20, 20);
 		werpKnop.setBounds(665, 260, 100, 20);
 		opKnop.setBounds(465, 315, 120, 20);
@@ -238,9 +239,9 @@ class SpelPaneel extends JPanel {
 		pinguinOpLabel.setBounds(615, 340, 120, 20);
 		aantalGegooidVak.setBounds(582, 370, 20, 20);
 		aantalGegooidLabel.setBounds(465, 370, 120, 20);
-		aantalGoedVak.setBounds(615, 395, 20, 20);
+		aantalGoedVak.setBounds(616, 395, 20, 20);
 		aantalGoedLabel.setBounds(465, 395, 160, 20);
-		aantalFoutVak.setBounds(608, 420, 20, 20);
+		aantalFoutVak.setBounds(609, 420, 20, 20);
 		aantalFoutLabel.setBounds(465, 420, 160, 20);
 		tipVak1.setBounds(20, 335, 300, 15);
 		tipVak2.setBounds(20, 355, 300, 15);
@@ -281,11 +282,11 @@ class SpelPaneel extends JPanel {
 		add(opKnop);
 		add(resetKnop);
 		add(hKnop);
-		
+
 		// De handleiding
 		Handleiding.showHandleiding();
 	}
-	
+
 	/*
 	 * De paintComponent tekent de omlijningen en de dobbelstenen
 	 */
@@ -308,8 +309,9 @@ class SpelPaneel extends JPanel {
 		graphics.drawRoundRect(10, 305, 380, 140, 15, 15);
 		// resultaten- en oplossingvak
 		graphics.drawRoundRect(395, 305, 380, 140, 15, 15);
-		
-		// Als magGooien true is en worpAantal gezet is in de actionListener van werpKnop,
+
+		// Als magGooien true is en worpAantal gezet is in de actionListener van
+		// werpKnop,
 		// genereert deze switch nieuwe waardes voor het aantal gegooide dobbelstenen
 		if (magGooien) {
 			switch (worpAantal) {
@@ -540,7 +542,8 @@ class SpelPaneel extends JPanel {
 				break;
 			}
 		}
-		// Als magGooien true is, tel alle wakken, ijsberen en pinguins bij elkaar op en stop het in een variabele
+		// Als magGooien true is, tel alle wakken, ijsberen en pinguins bij elkaar op en
+		// stop het in een variabele
 		aWakken = dbl1.getWakken() + dbl2.getWakken() + dbl3.getWakken() + dbl4.getWakken() + dbl5.getWakken()
 				+ dbl6.getWakken() + dbl7.getWakken() + dbl8.getWakken() + dbl9.getWakken() + dbl10.getWakken()
 				+ dbl11.getWakken() + dbl12.getWakken();
@@ -552,12 +555,13 @@ class SpelPaneel extends JPanel {
 				+ dbl10.getPinguins() + dbl11.getPinguins() + dbl12.getPinguins();
 		// Print de antwoorden naar de console (om af te kijken hehe)
 		if (worpAantal != 0) {
-		System.out.println("Worp: " + totaalGegooid + " | Wakken: " + aWakken + " | Ijsberen: " + aIjsberen + " | Pinguins: "
-				+ aPinguins);
+			System.out.println("Worp: " + totaalGegooid + " | Wakken: " + aWakken + " | Ijsberen: " + aIjsberen
+					+ " | Pinguins: " + aPinguins);
 		}
 	}
-	
-	// Als de user op de werpKnop drukt, wordt de switch in de paintComponent aangeroepen en worden de dobbelstenen getekend
+
+	// Als de user op de werpKnop drukt, wordt de switch in de paintComponent
+	// aangeroepen en worden de dobbelstenen getekend
 	class Werp implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -592,12 +596,12 @@ class SpelPaneel extends JPanel {
 						pinguinVak.setEditable(true);
 						dAantalVak.setEnabled(false);
 						resetKnop.setEnabled(true);
-						
+
 						beurtFout = 0;
 						totaalGegooid = totaalGegooid + 1;
 						String totaalStringGegooid = Integer.toString(totaalGegooid);
 						aantalGegooidVak.setText(totaalStringGegooid);
-						
+
 						tipVak1.setVisible(false);
 
 						repaint();
@@ -612,7 +616,7 @@ class SpelPaneel extends JPanel {
 			}
 		}
 	}
-	
+
 	// Als de user op de opKnop drukt, laat dan de oplossing zien
 	class Oplossing implements ActionListener {
 		@Override
@@ -654,7 +658,7 @@ class SpelPaneel extends JPanel {
 				gokWakken = Integer.parseInt(wakVak.getText());
 				gokIjsberen = Integer.parseInt(ijsbeerVak.getText());
 				gokPinguins = Integer.parseInt(pinguinVak.getText());
-				
+
 				// Logica om het antwoord van de gebruiker te controleren
 				if (gokWakken == aWakken) {
 					wakVak.setBackground(Color.GREEN);
@@ -687,8 +691,9 @@ class SpelPaneel extends JPanel {
 					String totaalStringFout = Integer.toString(totaalFout);
 					aantalFoutVak.setText(totaalStringFout);
 				}
-				
-				// De oplossingen laten zien zodat de gebruiker kan vergelijken met zijn eigen antwoorden
+
+				// De oplossingen laten zien zodat de gebruiker kan vergelijken met zijn eigen
+				// antwoorden
 				String aantalWaks = Integer.toString(aWakken);
 				String aantalIjsbeers = Integer.toString(aIjsberen);
 				String aantalPinguinen = Integer.toString(aPinguins);
@@ -709,42 +714,46 @@ class SpelPaneel extends JPanel {
 				tipVak3.setVisible(false);
 				tipVak4.setVisible(false);
 				magGooien = true;
-			//Als er een error voorkomt in de controlering, doe er een fout bij en laat tips zien, na 3 fouten opnieuw gooien.
+				// Als er een error voorkomt in de controlering, doe er een fout bij en laat
+				// tips zien, na 3 fouten opnieuw gooien.
 			} catch (Exception error) {
 				tipVak2.setVisible(true);
 				tipVak3.setVisible(true);
 				tipVak4.setVisible(true);
 				beurtFout = beurtFout + 1;
 				if (beurtFout == 2) {
-					JOptionPane.showMessageDialog(null, "Je hebt nog 1 kans om geldige waardes in te vullen","Laatste kans",JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Je hebt nog 1 kans om geldige waardes in te vullen",
+							"Laatste kans", JOptionPane.INFORMATION_MESSAGE);
 				}
 				if (beurtFout >= 3) {
-					JOptionPane.showMessageDialog(null, "Je hebt 3 keer een ongeldige input ingevuld, werp opnieuw.","Jammer",JOptionPane.INFORMATION_MESSAGE);
-						// De oplossingen laten zien zodat de gebruiker kan vergelijken met zijn eigen antwoorden
-						String aantalWaks = Integer.toString(aWakken);
-						String aantalIjsbeers = Integer.toString(aIjsberen);
-						String aantalPinguinen = Integer.toString(aPinguins);
-						wakOpVak.setText(aantalWaks);
-						ijsbeerOpVak.setText(aantalIjsbeers);
-						pinguinOpVak.setText(aantalPinguinen);
+					JOptionPane.showMessageDialog(null, "Je hebt 3 keer een ongeldige input ingevuld, werp opnieuw.",
+							"Jammer", JOptionPane.INFORMATION_MESSAGE);
+					// De oplossingen laten zien zodat de gebruiker kan vergelijken met zijn eigen
+					// antwoorden
+					String aantalWaks = Integer.toString(aWakken);
+					String aantalIjsbeers = Integer.toString(aIjsberen);
+					String aantalPinguinen = Integer.toString(aPinguins);
+					wakOpVak.setText(aantalWaks);
+					ijsbeerOpVak.setText(aantalIjsbeers);
+					pinguinOpVak.setText(aantalPinguinen);
 
-						controleerKnop.setEnabled(false);
-						opKnop.setEnabled(false);
-						werpKnop.setEnabled(true);
+					controleerKnop.setEnabled(false);
+					opKnop.setEnabled(false);
+					werpKnop.setEnabled(true);
 
-						wakVak.setEditable(false);
-						ijsbeerVak.setEditable(false);
-						pinguinVak.setEditable(false);
-						dAantalVak.setEnabled(true);
-						dAantalVak.setText("");
-						tipVak2.setVisible(false);
-						tipVak3.setVisible(false);
-						tipVak4.setVisible(false);
-						wakVak.setText("");
-						ijsbeerVak.setText("");
-						pinguinVak.setText("");
-						magGooien = true;
-					
+					wakVak.setEditable(false);
+					ijsbeerVak.setEditable(false);
+					pinguinVak.setEditable(false);
+					dAantalVak.setEnabled(true);
+					dAantalVak.setText("");
+					tipVak2.setVisible(false);
+					tipVak3.setVisible(false);
+					tipVak4.setVisible(false);
+					wakVak.setText("");
+					ijsbeerVak.setText("");
+					pinguinVak.setText("");
+					magGooien = true;
+
 				}
 				totaalFout = totaalFout + 1;
 				String totaalStringFout = Integer.toString(totaalFout);
@@ -752,7 +761,7 @@ class SpelPaneel extends JPanel {
 			}
 		}
 	}
-	
+
 	// Als de user op de resetKnop drukt, reset het gehele spel
 	class Resetten implements ActionListener {
 		@Override
@@ -761,7 +770,7 @@ class SpelPaneel extends JPanel {
 			String bericht = "Weet je zeker dat je helemaal opnieuw wilt beginnen?";
 			String titel = "Spel resetten";
 			int reply = JOptionPane.showConfirmDialog(null, bericht, titel, JOptionPane.YES_NO_OPTION);
-			//Als de gebruiker "Yes" aanklikt, reset dan het gehele spel
+			// Als de gebruiker "Yes" aanklikt, reset dan het gehele spel
 			if (reply == JOptionPane.YES_OPTION) {
 				controleerKnop.setEnabled(false);
 				opKnop.setEnabled(false);
@@ -794,7 +803,7 @@ class SpelPaneel extends JPanel {
 			}
 		}
 	}
-	
+
 	// Als de user op de handleidingKnop drukt, komt de handleiding tevoorschijn
 	class Handleid implements ActionListener {
 		@Override
